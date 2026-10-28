@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Learnly – Online courses</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7FB;--fg:#14172B;--muted:#5A5F7A;--card:#fff;--line:#E0E3EF;--blue:#2B4BF2;--onblue:#fff;--mint:#12B886;--coral:#FF6B4A;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1020;--fg:#EEF0FA;--muted:#A3A8C4;--card:#171A30;--line:#2A2E4D;--blue:#7C93FF;--onblue:#0E1020}}
+:root[data-theme="dark"]{--bg:#0E1020;--fg:#EEF0FA;--muted:#A3A8C4;--card:#171A30;--line:#2A2E4D;--blue:#7C93FF;--onblue:#0E1020}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--bg);color:var(--fg);font:1rem/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:Sora,"DM Sans",sans-serif;margin:0;line-height:1.2}
+a{color:inherit}:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+header{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+nav{max-width:1120px;margin:auto;padding:.7rem 1.25rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap}
+.logo{font:800 1.3rem Sora,sans-serif;margin-right:auto;text-decoration:none;color:var(--blue)}
+nav a.l{text-decoration:none;font-weight:500;color:var(--muted)}nav a.l:hover{color:var(--fg)}
+.btn{font:inherit;font-weight:600;border:0;border-radius:.6rem;padding:.65rem 1.2rem;background:var(--blue);color:var(--onblue);cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.btn.o{background:transparent;color:var(--blue);border:2px solid var(--blue)}
+main{max-width:1120px;margin:auto;padding:0 1.25rem}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem;align-items:center;padding:3.5rem 0 1rem}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.8rem);font-weight:800;letter-spacing:-.025em}
+.hero p{color:var(--muted);font-size:1.15rem;max-width:32rem;margin:1rem 0 1.5rem}
+.preview{aspect-ratio:16/10;border-radius:1rem;background:linear-gradient(135deg,#2B4BF2,#8B5CF6);display:grid;place-items:center;position:relative;overflow:hidden}
+.play{width:4.5rem;height:4.5rem;border-radius:50%;background:#fff;display:grid;place-items:center}
+.play::after{content:"";border-left:1.2rem solid #2B4BF2;border-top:.8rem solid transparent;border-bottom:.8rem solid transparent;margin-left:.3rem}
+.preview .prog{position:absolute;left:0;bottom:0;height:.4rem;width:100%;background:rgba(255,255,255,.3)}
+.preview .prog i{display:block;height:100%;width:0;background:var(--coral);animation:fill 3s ease-out .4s forwards}
+@keyframes fill{to{width:62%}}
+.preview span{position:absolute;left:1rem;bottom:1rem;color:#fff;font-weight:600;font-size:.95rem}
+h2{font-size:1.7rem;margin:3rem 0 1rem}
+.f,.en{position:absolute;opacity:0;pointer-events:none}
+.cats{display:flex;flex-wrap:wrap;gap:.5rem}
+.cats label{font-weight:500;padding:.5rem 1rem;border-radius:99px;border:1px solid var(--line);background:var(--card);cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.2rem;margin-top:1.2rem}
+.course{position:relative;background:var(--card);border:1px solid var(--line);border-radius:1rem;overflow:hidden;display:flex;flex-direction:column}
+.thumb{aspect-ratio:16/9;display:grid;place-items:center;position:relative}
+.thumb .play{width:3rem;height:3rem}.thumb .play::after{border-left-width:.8rem;border-top-width:.55rem;border-bottom-width:.55rem}
+.thumb em{position:absolute;right:.6rem;bottom:.6rem;background:rgba(0,0,0,.65);color:#fff;font-style:normal;font-size:.8rem;padding:.1rem .45rem;border-radius:.3rem}
+.body{padding:1rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.body h3{font-size:1.05rem}.body p{margin:0;color:var(--muted);font-size:.95rem}
+.who{display:flex;align-items:center;gap:.5rem;font-size:.9rem;font-weight:500}
+.who i{width:1.7rem;height:1.7rem;border-radius:50%;display:grid;place-items:center;background:var(--line);font-style:normal;font-size:.75rem;font-weight:700}
+.obj{margin:.2rem 0;padding-left:1.1rem;font-size:.92rem;color:var(--muted)}
+.meter{height:.45rem;background:var(--line);border-radius:9px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--mint);border-radius:9px;width:0;transition:width .8s ease}
+.en:checked~.body .meter i{width:max(var(--p),5%)}
+.meta{display:flex;justify-content:space-between;font-size:.85rem;color:var(--muted)}
+.m2,.btn .b{display:none}.en:checked~.body .m1,.en:checked~.body .btn .a{display:none}.en:checked~.body .m2,.en:checked~.body .btn .b{display:inline}
+.en:checked~.body label.btn{background:var(--mint);color:#fff}
+.en:focus-visible~.body label.btn{outline:3px solid var(--coral);outline-offset:3px}
+.body .btn{margin-top:auto}
+#c-web:checked~.grid .course:not([data-c="Web"]){display:none}#c-programming:checked~.grid .course:not([data-c="Programming"]){display:none}#c-data:checked~.grid .course:not([data-c="Data"]){display:none}#c-design:checked~.grid .course:not([data-c="Design"]){display:none}#c-all:checked~.cats label[for="c-all"]{background:var(--blue);color:var(--onblue);border-color:var(--blue)}#c-all:focus-visible~.cats label[for="c-all"]{outline:3px solid var(--coral);outline-offset:3px}#c-web:checked~.cats label[for="c-web"]{background:var(--blue);color:var(--onblue);border-color:var(--blue)}#c-web:focus-visible~.cats label[for="c-web"]{outline:3px solid var(--coral);outline-offset:3px}#c-programming:checked~.cats label[for="c-programming"]{background:var(--blue);color:var(--onblue);border-color:var(--blue)}#c-programming:focus-visible~.cats label[for="c-programming"]{outline:3px solid var(--coral);outline-offset:3px}#c-data:checked~.cats label[for="c-data"]{background:var(--blue);color:var(--onblue);border-color:var(--blue)}#c-data:focus-visible~.cats label[for="c-data"]{outline:3px solid var(--coral);outline-offset:3px}#c-design:checked~.cats label[for="c-design"]{background:var(--blue);color:var(--onblue);border-color:var(--blue)}#c-design:focus-visible~.cats label[for="c-design"]{outline:3px solid var(--coral);outline-offset:3px}
+.inst{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+.ic{background:var(--card);border:1px solid var(--line);border-radius:1rem;padding:1.2rem}
+.ic .av{width:3.4rem;height:3.4rem;border-radius:50%;display:grid;place-items:center;color:#fff;font:700 1.1rem Sora,sans-serif;margin-bottom:.6rem}
+.ic p{margin:.3rem 0 0;color:var(--muted);font-size:.95rem}
+footer{max-width:1120px;margin:4rem auto 2rem;padding:1.2rem 1.25rem 0;border-top:1px solid var(--line);color:var(--muted)}
+@media(max-width:760px){.hero{grid-template-columns:1fr}nav a.l{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.preview .prog i{width:62%}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><nav aria-label="Main"><a class="logo" href="#top">Learnly</a><a class="l" href="#courses">Courses</a><a class="l" href="#instructors">Instructors</a><a class="btn" href="#courses">Browse courses</a></nav></header>
+<main id="top">
+<section class="hero">
+<div><h1>Learn a skill in weeks, not years.</h1><p>Short video lessons, hands-on projects, and clear goals for every course. Pick a topic and start today.</p><a class="btn" href="#courses">Find a course</a> <a class="btn o" href="#instructors">Meet instructors</a></div>
+<div class="preview" aria-label="Lesson preview"><div class="play"></div><span>Lesson 5 of 8: CSS Grid layouts</span><div class="prog"><i></i></div></div>
+</section>
+<section id="courses"><h2>Course categories</h2>
+<input type="radio" name="cat" class="f" id="c-all" aria-label="All" checked><input type="radio" name="cat" class="f" id="c-web" aria-label="Web"><input type="radio" name="cat" class="f" id="c-programming" aria-label="Programming"><input type="radio" name="cat" class="f" id="c-data" aria-label="Data"><input type="radio" name="cat" class="f" id="c-design" aria-label="Design">
+<div class="cats"><label for="c-all">All</label><label for="c-web">Web</label><label for="c-programming">Programming</label><label for="c-data">Data</label><label for="c-design">Design</label></div>
+<div class="grid"><article class="course" data-c="Web"><input type="checkbox" class="en" id="e0" aria-label="Enroll in Web Development Basics" checked><div class="thumb" style="background:linear-gradient(135deg,#2B4BF2,#8B5CF6)"><div class="play"></div><em>6h 20m</em></div><div class="body"><h3>Web Development Basics</h3><div class="who"><i>AR</i>Anita Rao</div><p>Build your first responsive website with HTML, CSS, and JavaScript.</p><ul class="obj"><li>Structure pages with semantic HTML</li><li>Style responsive layouts</li><li>Add interactivity with JS</li></ul><div class="meter"><i style="--p:60%"></i></div><div class="meta"><span class="m1">Not started</span><span class="m2">60% complete</span><span>Web</span></div><label class="btn" for="e0"><span class="a">Enroll now</span><span class="b">Continue course</span></label></div></article><article class="course" data-c="Programming"><input type="checkbox" class="en" id="e1" aria-label="Enroll in Python for Beginners" checked><div class="thumb" style="background:linear-gradient(135deg,#12B886,#2B8A6E)"><div class="play"></div><em>8h 05m</em></div><div class="body"><h3>Python for Beginners</h3><div class="who"><i>VS</i>Vikram Sai</div><p>Learn variables, loops, functions, and small real-world scripts.</p><ul class="obj"><li>Write clean Python code</li><li>Automate simple tasks</li><li>Debug common errors</li></ul><div class="meter"><i style="--p:25%"></i></div><div class="meta"><span class="m1">Not started</span><span class="m2">25% complete</span><span>Programming</span></div><label class="btn" for="e1"><span class="a">Enroll now</span><span class="b">Continue course</span></label></div></article><article class="course" data-c="Data"><input type="checkbox" class="en" id="e2" aria-label="Enroll in Data Analysis with Excel"><div class="thumb" style="background:linear-gradient(135deg,#F59F00,#E8590C)"><div class="play"></div><em>4h 40m</em></div><div class="body"><h3>Data Analysis with Excel</h3><div class="who"><i>MN</i>Meera Nair</div><p>Clean, summarize, and chart data using formulas and pivot tables.</p><ul class="obj"><li>Use core formulas</li><li>Build pivot tables</li><li>Present findings in charts</li></ul><div class="meter"><i style="--p:0%"></i></div><div class="meta"><span class="m1">Not started</span><span class="m2">Just enrolled</span><span>Data</span></div><label class="btn" for="e2"><span class="a">Enroll now</span><span class="b">Continue course</span></label></div></article><article class="course" data-c="Design"><input type="checkbox" class="en" id="e3" aria-label="Enroll in UI Design Fundamentals" checked><div class="thumb" style="background:linear-gradient(135deg,#E64980,#FF6B4A)"><div class="play"></div><em>5h 10m</em></div><div class="body"><h3>UI Design Fundamentals</h3><div class="who"><i>AR</i>Anita Rao</div><p>Understand layout, color, and type so your interfaces feel clear.</p><ul class="obj"><li>Apply grids and spacing</li><li>Pick accessible colors</li><li>Prototype in Figma</li></ul><div class="meter"><i style="--p:80%"></i></div><div class="meta"><span class="m1">Not started</span><span class="m2">80% complete</span><span>Design</span></div><label class="btn" for="e3"><span class="a">Enroll now</span><span class="b">Continue course</span></label></div></article><article class="course" data-c="Programming"><input type="checkbox" class="en" id="e4" aria-label="Enroll in JavaScript in Depth" checked><div class="thumb" style="background:linear-gradient(135deg,#1C7ED6,#15AABF)"><div class="play"></div><em>9h 30m</em></div><div class="body"><h3>JavaScript in Depth</h3><div class="who"><i>VS</i>Vikram Sai</div><p>Go beyond the basics with the DOM, async code, and APIs.</p><ul class="obj"><li>Work with the DOM</li><li>Fetch data from APIs</li><li>Organize code in modules</li></ul><div class="meter"><i style="--p:10%"></i></div><div class="meta"><span class="m1">Not started</span><span class="m2">10% complete</span><span>Programming</span></div><label class="btn" for="e4"><span class="a">Enroll now</span><span class="b">Continue course</span></label></div></article><article class="course" data-c="Data"><input type="checkbox" class="en" id="e5" aria-label="Enroll in Intro to Machine Learning"><div class="thumb" style="background:linear-gradient(135deg,#7048E8,#364FC7)"><div class="play"></div><em>7h 15m</em></div><div class="body"><h3>Intro to Machine Learning</h3><div class="who"><i>MN</i>Meera Nair</div><p>Train and test your first models with plain-language explanations.</p><ul class="obj"><li>Explain how models learn</li><li>Train a simple classifier</li><li>Measure accuracy</li></ul><div class="meter"><i style="--p:0%"></i></div><div class="meta"><span class="m1">Not started</span><span class="m2">Just enrolled</span><span>Data</span></div><label class="btn" for="e5"><span class="a">Enroll now</span><span class="b">Continue course</span></label></div></article></div></section>
+<section id="instructors"><h2>Your instructors</h2>
+<div class="inst"><div class="ic"><div class="av" style="background:#2B4BF2">AR</div><h3>Anita Rao</h3><p><b>Web and design lead</b></p><p>10 years building products for startups.</p></div><div class="ic"><div class="av" style="background:#12B886">VS</div><h3>Vikram Sai</h3><p><b>Software engineer</b></p><p>Teaches Python and JavaScript with real projects.</p></div><div class="ic"><div class="av" style="background:#E8590C">MN</div><h3>Meera Nair</h3><p><b>Data scientist</b></p><p>Makes data and ML approachable for beginners.</p></div></div></section>
+</main>
+<footer>© 2026 Learnly. Sample platform built for the AI Website Build Sprint.</footer>
+</body>
+</html>

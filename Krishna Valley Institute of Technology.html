@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Krishna Valley Institute of Technology</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAFAFC;--fg:#1B1A24;--muted:#555266;--card:#fff;--line:#DDDAE6;--maroon:#7A1F3D;--gold:#F2A900;--ongold:#1B1A24;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15131C;--fg:#EDEBF3;--muted:#A9A5BA;--card:#1E1B29;--line:#37334A;--maroon:#C24B73}}
+:root[data-theme="dark"]{--bg:#15131C;--fg:#EDEBF3;--muted:#A9A5BA;--card:#1E1B29;--line:#37334A;--maroon:#C24B73}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{margin:0;background:var(--bg);color:var(--fg);font:1.05rem/1.6 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;margin:0;line-height:1.15}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+a{color:inherit}
+header{position:sticky;top:0;z-index:5;background:#5B1530;color:#fff;padding-top:env(safe-area-inset-top,0px)}
+nav{max-width:1100px;margin:auto;display:flex;align-items:center;gap:.2rem;padding:.55rem 1.25rem;flex-wrap:wrap}
+.brand{font:800 1.15rem Fraunces,serif;margin-right:auto;text-decoration:none;display:flex;gap:.5rem;align-items:center}
+.brand i{width:1.9rem;height:1.9rem;background:var(--gold);color:var(--ongold);border-radius:.4rem;display:grid;place-items:center;font-style:normal;font-size:1rem}
+nav a.l{padding:.4rem .75rem;text-decoration:none;border-radius:.4rem;font-weight:500}
+nav a.l:hover{background:rgba(255,255,255,.15)}
+nav a.apply{background:var(--gold);color:var(--ongold);font-weight:600}
+#menu{display:none;background:none;border:1px solid #fff8;color:#fff;border-radius:.4rem;padding:.35rem .7rem;font:inherit}
+.banner{background:linear-gradient(120deg,#5B1530 0%,#7A1F3D 55%,#A5472A 100%);color:#fff;padding:4.5rem 1.25rem 5rem}
+.banner div{max-width:1100px;margin:auto}
+.banner h1{font-size:clamp(2.2rem,6vw,4.2rem);font-weight:800;max-width:14ch;letter-spacing:-.02em}
+.banner p{max-width:38rem;font-size:1.2rem;opacity:.92;margin:1.2rem 0 1.8rem}
+.btn{display:inline-block;padding:.75rem 1.4rem;border-radius:.4rem;font-weight:600;text-decoration:none;border:2px solid #fff;color:#fff;margin-right:.6rem}
+.btn.g{background:var(--gold);border-color:var(--gold);color:var(--ongold)}
+main{max-width:1100px;margin:auto;padding:0 1.25rem}
+section{padding-top:4rem}
+h2{font-size:clamp(1.7rem,3.5vw,2.3rem);margin-bottom:.4rem}
+.sub{color:var(--muted);margin:0 0 1.5rem;max-width:42rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin-top:-2.6rem;position:relative}
+.stat{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--gold);padding:1rem 1.2rem}
+.stat b{font:800 2rem Fraunces,serif;color:var(--maroon);display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:.5rem;padding:1.2rem}
+.card h3{font-size:1.15rem;margin-bottom:.35rem}.card p{margin:.3rem 0;color:var(--muted)}
+.tabs{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem}
+.tabs button{font:inherit;font-weight:600;padding:.5rem 1rem;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:.4rem;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+.panel[hidden]{display:none}
+.faculty .av{width:3.2rem;height:3.2rem;border-radius:50%;background:var(--gold);color:var(--ongold);display:grid;place-items:center;font:800 1.1rem Fraunces,serif;margin-bottom:.6rem}
+ol.steps{list-style:none;counter-reset:s;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+ol.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:.5rem;padding:1.2rem}
+ol.steps li::before{content:counter(s);display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--maroon);color:#fff;font-weight:700;margin-bottom:.5rem}
+.ev{display:flex;gap:1rem;align-items:center}
+.date{flex:none;text-align:center;background:var(--maroon);color:#fff;border-radius:.4rem;padding:.4rem .7rem;font-weight:600;line-height:1.2}
+.date b{display:block;font:800 1.5rem Fraunces,serif}
+.fac h3{font-size:1.05rem}
+form{display:grid;gap:.8rem}label{display:grid;gap:.25rem;font-weight:600}
+input,select,textarea{font:inherit;padding:.65rem .8rem;border:1px solid var(--line);border-radius:.4rem;background:var(--card);color:var(--fg)}
+button.btn{cursor:pointer}
+#ok{font-weight:600;color:var(--maroon);min-height:1.5rem}
+footer{background:#2A0E1A;color:#e8dfe3;margin-top:5rem;padding:2rem 1.25rem}footer div{max-width:1100px;margin:auto}
+@media(max-width:760px){#menu{display:block}nav .links{display:none;width:100%;flex-direction:column}nav .links.open{display:flex}.stats{margin-top:-1.8rem}}
+@media(min-width:761px){nav .links{display:flex;gap:.2rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.tabset>input,.mt{position:absolute;opacity:0;pointer-events:none}
+.tabs label{font-weight:600;padding:.5rem 1rem;border:1px solid var(--line);background:var(--card);border-radius:.4rem;cursor:pointer}
+.panel{display:none}
+#t1:checked~#p1,#t2:checked~#p2,#t3:checked~#p3,#t4:checked~#p4{display:block}
+#t1:checked~.tabs label[for="t1"],#t2:checked~.tabs label[for="t2"],#t3:checked~.tabs label[for="t3"],#t4:checked~.tabs label[for="t4"]{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+#t1:focus-visible~.tabs label[for="t1"],#t2:focus-visible~.tabs label[for="t2"],#t3:focus-visible~.tabs label[for="t3"],#t4:focus-visible~.tabs label[for="t4"],#mt:focus-visible~#menu{outline:3px solid var(--gold);outline-offset:3px}
+#menu{cursor:pointer}#mt:checked~.links{display:flex}
+</style>
+</head>
+<body>
+<header><nav aria-label="Main">
+<a class="brand" href="#top"><i>K</i>Krishna Valley Institute</a>
+<input type="checkbox" id="mt" class="mt" aria-label="Toggle menu"><label for="mt" id="menu">Menu</label>
+<div class="links" id="links"><a class="l" href="#about">About</a><a class="l" href="#departments">Departments</a><a class="l" href="#faculty">Faculty</a><a class="l" href="#admissions">Admissions</a><a class="l" href="#campus">Campus</a><a class="l" href="#events">Events</a><a class="l" href="#contact">Contact</a><a class="l apply" href="#apply">Apply now</a></div>
+</nav></header>
+
+<div class="banner" id="top"><div>
+<h1>Learn to build what’s next.</h1>
+<p>Engineering and science programs with small classes, working labs, and placement support. Admissions for 2027 are open.</p>
+<a class="btn g" href="#apply">Start your application</a><a class="btn" href="#departments">Explore courses</a>
+</div></div>
+
+<main>
+<div class="stats">
+<div class="stat"><b>1998</b>Founded</div><div class="stat"><b>4,200</b>Students</div><div class="stat"><b>180</b>Faculty members</div><div class="stat"><b>92%</b>Placement rate</div>
+</div>
+
+<section id="about"><h2>About the institute</h2>
+<p class="sub">Krishna Valley Institute of Technology is an autonomous college in Andhra Pradesh, affiliated with a state university and approved by AICTE. We teach with projects first and lectures second. (Sample content: replace with your college’s details.)</p>
+<div class="grid">
+<div class="card"><h3>Vision</h3><p>Graduates who solve real problems for their region and the world.</p></div>
+<div class="card"><h3>Mission</h3><p>Hands-on education, honest mentoring, and strong industry links.</p></div>
+<div class="card"><h3>Accreditation</h3><p>NAAC A grade, NBA-accredited programs.</p></div>
+</div></section>
+
+<section id="departments"><h2>Departments and courses</h2>
+<p class="sub">Choose a department to see its programs.</p>
+<div class="tabset">
+<input type="radio" name="d" id="t1" checked aria-label="Computer Science"><input type="radio" name="d" id="t2" aria-label="Electronics"><input type="radio" name="d" id="t3" aria-label="Mechanical"><input type="radio" name="d" id="t4" aria-label="Civil">
+<div class="tabs"><label for="t1">Computer Science</label><label for="t2">Electronics</label><label for="t3">Mechanical</label><label for="t4">Civil</label></div>
+<div class="panel card" id="p1"><h3>Computer Science and Engineering</h3><p>B.Tech CSE (4 years, 180 seats) · B.Tech AI &amp; Data Science (4 years, 60 seats) · M.Tech CSE (2 years, 24 seats)</p></div>
+<div class="panel card" id="p2"><h3>Electronics and Communication</h3><p>B.Tech ECE (4 years, 120 seats) · M.Tech VLSI Design (2 years, 18 seats)</p></div>
+<div class="panel card" id="p3"><h3>Mechanical Engineering</h3><p>B.Tech Mechanical (4 years, 120 seats) · M.Tech Thermal Engineering (2 years, 18 seats)</p></div>
+<div class="panel card" id="p4"><h3>Civil Engineering</h3><p>B.Tech Civil (4 years, 60 seats) · M.Tech Structural Engineering (2 years, 18 seats)</p></div>
+</div>
+</section>
+
+<section id="faculty"><h2>Faculty profiles</h2>
+<div class="grid faculty">
+<div class="card"><div class="av">RK</div><h3>Dr. R. Kavitha</h3><p>Professor and Head, Computer Science. PhD in machine learning, 18 years teaching.</p></div>
+<div class="card"><div class="av">SM</div><h3>Dr. S. Murali</h3><p>Professor, Electronics. Works on embedded systems and IoT.</p></div>
+<div class="card"><div class="av">PL</div><h3>Prof. P. Lakshmi</h3><p>Associate Professor, Civil. Specialist in sustainable construction.</p></div>
+</div></section>
+
+<section id="admissions"><h2>Admissions procedure</h2>
+<p class="sub">Four steps from application to classroom.</p>
+<ol class="steps">
+<li><h3>Register online</h3><p>Create an account with your email and phone number.</p></li>
+<li><h3>Enter your scores</h3><p>Add your entrance rank (EAMCET or JEE) and Intermediate marks.</p></li>
+<li><h3>Upload documents</h3><p>Marks memo, rank card, ID proof, and photo.</p></li>
+<li><h3>Attend counselling</h3><p>Choose your branch and pay the first-year fee to confirm your seat.</p></li>
+</ol></section>
+
+<section id="campus"><h2>Campus facilities</h2>
+<div class="grid">
+<div class="card"><h3>Library</h3><p>60,000 books and 24/7 digital access.</p></div>
+<div class="card"><h3>Labs</h3><p>Robotics, VLSI, 3D printing, and a 500-seat computer centre.</p></div>
+<div class="card"><h3>Hostels</h3><p>Separate hostels for men and women with a mess and Wi-Fi.</p></div>
+<div class="card"><h3>Sports</h3><p>Cricket ground, indoor courts, and a gym.</p></div>
+</div></section>
+
+<section id="events"><h2>Upcoming events</h2>
+<div class="grid">
+<div class="card ev"><div class="date">NOV<b>14</b></div><div><h3>Open Day</h3><p>Tour labs and meet faculty.</p></div></div>
+<div class="card ev"><div class="date">DEC<b>05</b></div><div><h3>Tech Fest: Spark 2026</h3><p>Hackathon, robotics, and talks.</p></div></div>
+<div class="card ev"><div class="date">JAN<b>20</b></div><div><h3>Placement Drive</h3><p>40+ companies on campus.</p></div></div>
+</div></section>
+
+<section id="apply"><h2>Apply for admission</h2>
+<div class="card" style="max-width:560px"><form action="mailto:admissions@kvit.example" method="post" enctype="text/plain">
+<label>Full name<input required></label>
+<label>Email<input type="email" required></label>
+<label>Preferred course<select><option>B.Tech Computer Science</option><option>B.Tech AI &amp; Data Science</option><option>B.Tech Electronics</option><option>B.Tech Mechanical</option><option>B.Tech Civil</option></select></label>
+<button class="btn g" style="color:var(--ongold)" type="submit">Submit application</button>
+</form></div></section>
+
+<section id="contact"><h2>Contact</h2>
+<div class="grid"><div class="card"><h3>Address</h3><p>Krishna Valley Institute of Technology, Vijayawada, Andhra Pradesh 520001</p></div><div class="card"><h3>Admissions office</h3><p>admissions@kvit.example · +91 98765 43210</p><p>Mon to Sat, 9:30 am to 5 pm</p></div></div></section>
+</main>
+<footer><div>© 2026 Krishna Valley Institute of Technology. Sample site built for the AI Website Build Sprint.</div></footer>
+</body>
+</html>
